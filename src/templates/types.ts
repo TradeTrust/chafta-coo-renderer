@@ -69,6 +69,7 @@ export interface TradeLineItem {
     };
     originCountry?: Country;
   };
+  transportPackages?: TransportPackage[];
 }
 
 export interface Consignment {
@@ -94,7 +95,7 @@ export interface Consignment {
       departureDateTime?: string;
     };
   };
-  transportPackages?: TransportPackage[];
+  // transportPackages?: TransportPackage[];
   unloadingBaseportLocation?: {
     iD?: string;
     name?: string;

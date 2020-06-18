@@ -23,6 +23,12 @@ Changed
   }],
 ```
 
+### Make the entire section from 1-12 an array
+
+Missing association from transportPackages to the line items.
+
+_Moved transportPackages into individual tradeLineItems_
+
 ## Suggested Changes
 
 ### TradeLineItem > attachedBinaryFile
@@ -37,8 +43,12 @@ Current
 
 Suggest to change to reference document since it is not "attached"
 
-## Change "information" to "description"
+### Change "information" to "description"
 
-## Break down grossWeight & grossVolume
+### Break down grossWeight & grossVolume
 
 value & units
+
+## Missing
+
+Port of discharge information

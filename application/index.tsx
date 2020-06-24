@@ -1,23 +1,12 @@
 import ReactDOM from "react-dom";
-import { customTemplateCertificate } from "../src/templates/sample";
+import pdfOnly from "../tmp/pdf.json";
 import React from "react";
 import { App } from "./app";
 
 ReactDOM.render(
   <App
     documents={[
-      { name: "Default document", document: customTemplateCertificate },
-      {
-        name: "Red document",
-        document: {
-          ...customTemplateCertificate,
-          foo: "bar",
-          $template: {
-            ...customTemplateCertificate.$template,
-            name: "red"
-          }
-        }
-      }
+      { name: "PDF Only", document: pdfOnly },
     ]}
   />,
   document.getElementById("root")

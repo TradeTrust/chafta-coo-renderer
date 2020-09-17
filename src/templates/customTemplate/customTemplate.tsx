@@ -3,6 +3,7 @@ import { format } from "date-fns";
 import { TemplateProps } from "@govtechsg/decentralized-renderer-react-components";
 import { ChaftaCooDocument } from "../types";
 import { PrintWatermark } from "../../core/PrintWatermark";
+import { DocumentQrCode } from "../../core/DocumentQrCode";
 
 const getValue = (id?: string) => {
   if (!id) return undefined;
@@ -34,7 +35,7 @@ export const PrivacyButton = ({
   };
   return (
     <div className="d-inline" onClick={hideSection}>
-      <i style={{ color: "red" }} className="fa fa-minus-circle" aria-hidden="true"></i>
+      <i style={{ color: "red" }} className="fa fa-minus-circle" aria-hidden="true" />
     </div>
   );
 };
@@ -295,7 +296,7 @@ export const DeclarationSection: FunctionComponent<TemplateProps<ChaftaCooDocume
         {printDate(firstSignatoryAuthentication?.actualDateTime)}
       </div>
       <div className="text-center">
-        <img className="w-50" src={firstSignatoryAuthentication?.signature}></img>
+        <img className="w-50" src={firstSignatoryAuthentication?.signature} />
       </div>
       <div>Place, date and signature of authorised person</div>
     </div>
@@ -312,7 +313,7 @@ export const CertificationSection: FunctionComponent<TemplateProps<ChaftaCooDocu
       <div className="d-flex flex-column justify-content-between h-100">
         <div>14. Certification</div>
         <div className="text-center">
-          <img className="w-50" src={secondSignatoryAuthentication?.signature}></img>
+          <img className="w-50" src={secondSignatoryAuthentication?.signature} />
         </div>
         <div>Place, date and signature of authorised person</div>
       </div>
@@ -323,6 +324,7 @@ export const CertificationSection: FunctionComponent<TemplateProps<ChaftaCooDocu
 export const CustomTemplate: FunctionComponent<TemplateProps<ChaftaCooDocument> & HasPrivacyToggle> = props => {
   const [isPrivacyOn, setIsPrivacyOn] = useState(false);
   const { document } = props;
+  const qrCodeUrl = document?.links?.self.href;
 
   return (
     <div id="chafta-coo-template" style={{ fontSize: "0.8em" }} className="container">
@@ -382,6 +384,7 @@ export const CustomTemplate: FunctionComponent<TemplateProps<ChaftaCooDocument> 
           </div>
         </div>
       </div>
+      {qrCodeUrl && <DocumentQrCode url={qrCodeUrl} />}
     </div>
   );
 };

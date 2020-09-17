@@ -30,6 +30,7 @@ export interface ChaftaCooDocument extends Document {
   isPreferential?: boolean;
   freeTradeAgreement?: string;
   supplyChainConsignment?: Consignment;
+  links?: { self: { href: string } };
 }
 
 export interface Entity {

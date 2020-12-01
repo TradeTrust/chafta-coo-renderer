@@ -2,7 +2,6 @@ import React, { FunctionComponent, useState } from "react";
 import { format } from "date-fns";
 import { TemplateProps } from "@govtechsg/decentralized-renderer-react-components";
 import { ChaftaCooDocument } from "../types";
-import { PrintWatermark } from "../../core/PrintWatermark";
 import { DocumentQrCode } from "../../core/DocumentQrCode";
 
 const getValue = (id?: string) => {
@@ -328,7 +327,6 @@ export const CustomTemplate: FunctionComponent<TemplateProps<ChaftaCooDocument> 
 
   return (
     <div id="chafta-coo-template" style={{ fontSize: "0.8em" }} className="container">
-      <PrintWatermark />
       <div className="p-2">
         <div className="custom-control custom-switch">
           <input
